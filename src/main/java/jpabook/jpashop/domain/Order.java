@@ -14,6 +14,18 @@ public class Order {
     @Column(name = "MEMBER_ID")
     private Long memberId;
 
+    private Member member;
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    //    @Column(name = "ORDER_DATE")
+//    Boot의 경우 JAVA Camel Case를 DB의 Under Scope로 자동 변환해 주기로 한다.
     private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)//Order로 들어가면 나중에 순서가 꼬일 수 있다 -> 중간에 추가될 경우

@@ -3,11 +3,15 @@ package jpabook.jpashop.domain;
 import javax.persistence.*;
 
 @Entity
+//@Table(indexes = @Index(columnList = "MEMBER_ID"))
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "MEMBER_ID")
     private Long id;
+
+    // DB제약사항도 추가한다 -> 이게 없을 경우 DB를 조회해 봐야한다.
+    @Column(length = 10)
     private String name;
     private String city;
     private String street;

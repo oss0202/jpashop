@@ -1,5 +1,8 @@
 package jpabook.jpashop;
 
+import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.Order;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -14,6 +17,15 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
+            Order order = em.find(Order.class, 1L);
+            Long memberId = order.getMemberId();
+
+            // 1. find 2번 해야한다.
+            Member member = em.find(Member.class, memberId);
+            
+            // 2. Order Class에 Member Class를 변수로 추가
+            Member findMember = order.getMember();
+
             tx.commit();
         }catch (Exception e){
             tx.rollback();
