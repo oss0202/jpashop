@@ -5,6 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,13 +25,8 @@ public class Order {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
-    }
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems = new ArrayList<>();
 
     //    @Column(name = "ORDER_DATE")
 //    Boot의 경우 JAVA Camel Case를 DB의 Under Scope로 자동 변환해 주기로 한다.

@@ -1,7 +1,14 @@
 package jpabook.jpashop.domain;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
 //@Table(indexes = @Index(columnList = "MEMBER_ID"))
 public class Member {
@@ -17,43 +24,7 @@ public class Member {
     private String street;
     private String zipcode;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
-    }
+    @OneToMany(mappedBy = "member")
+    @JoinColumn(name = "MEMBER_ID")
+    private List<Order> orders = new ArrayList<>();// 초기값 세팅, NPE 예방, 메모리를 약간 잡아먹긴 함
 }
