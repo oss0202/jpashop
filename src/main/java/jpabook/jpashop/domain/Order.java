@@ -19,7 +19,7 @@ public class Order {
 //    @Column(name = "MEMBER_ID")
 //    private Long memberId;
 
-    @ManyToOne
+    @ManyToOne // 여러 주문을 한 회원은 하나
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 

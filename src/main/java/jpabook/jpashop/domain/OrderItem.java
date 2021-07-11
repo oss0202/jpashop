@@ -15,14 +15,15 @@ public class OrderItem {
 
 //    @Column(name = "ORDER_ID")
 //    private Long orderId;
-    @ManyToOne
+
+    @ManyToOne // 여러 주문 상품의 주문은 하나
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 
 //    @Column(name = "ITEM_ID")
 //    private Long itemID;
 
-    @ManyToOne
+    @ManyToOne // 여러 상품의 주문 상품은 하나
     @JoinColumn(name = "ITEM_ID")
     private Item item;
 
