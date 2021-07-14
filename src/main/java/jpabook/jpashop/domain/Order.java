@@ -34,4 +34,10 @@ public class Order {
 
     @Enumerated(EnumType.STRING)//Order로 들어가면 나중에 순서가 꼬일 수 있다 -> 중간에 추가될 경우
     private OrderStatus statue;
+
+    public void addOrderItem(OrderItem orderItem) {
+        this.orderItems.add(orderItem);
+        //양방향 매핑관계를 위해서 추가
+        orderItem.setOrder(this);
+    }
 }

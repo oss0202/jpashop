@@ -1,14 +1,14 @@
 package jpabook.jpashop;
 
-import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.OrderItem;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class JpaMain {
+public class JpaMain_exam02 {
     public static void main(String[] args) {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpashop");
@@ -17,15 +17,17 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            Order order = em.find(Order.class, 1L);
-            //예제 2번 양방향 연관관계 세팅을 위해서 위 메소드 호출 주석처리
-            /*Long memberId = order.getMemberId();
 
-            // 1. find 2번 해야한다.
-            Member member = em.find(Member.class, memberId);
+            Order order = new Order();
             
-            // 2. Order Class에 Member Class를 변수로 추가
-            Member findMember = order.getMember();*/
+            // 1안
+            order.addOrderItem(new OrderItem());
+                
+            // 2안
+            OrderItem orderItem = new OrderItem();
+            orderItem.setOrder(order);
+
+
 
             tx.commit();
         }catch (Exception e){
