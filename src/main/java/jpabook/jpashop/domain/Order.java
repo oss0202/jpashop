@@ -10,7 +10,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
+//@Entity
 @Table(name = "ORDERS")//ORDER의 경우 DB S에약어로 들어간 경우가 많아서 ORDERS로 테이브 이름을 설정해 줍니다.
 public class Order {
 
