@@ -17,7 +17,7 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            Order order = em.find(Order.class, 1L);
+            //Order order = em.find(Order.class, 1L);
             //예제 2번 양방향 연관관계 세팅을 위해서 위 메소드 호출 주석처리
             /*Long memberId = order.getMemberId();
 
@@ -33,7 +33,6 @@ public class JpaMain {
         } finally {
             em.close();
         }
-        em.close();
         emf.close();;
     }
 }

@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Entity
+//@Entity
 public class Locker {
 
     @Id @GeneratedValue
@@ -18,6 +18,6 @@ public class Locker {
     private String name;
 
     // 읽기 전용
-    @OneToOne(mappedBy = "locker")
-    private Member member;
+//    @OneToOne(mappedBy = "locker")
+//    private Member member;
 }
