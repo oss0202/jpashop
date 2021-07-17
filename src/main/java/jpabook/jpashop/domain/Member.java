@@ -24,7 +24,8 @@ public class Member {
     private String street;
     private String zipcode;
 
-    @OneToMany(mappedBy = "member")
+//    @OneToMany(mappedBy = "member")
+    @OneToMany
     @JoinColumn(name = "MEMBER_ID")
     private List<Order> orders = new ArrayList<>();// 초기값 세팅, NPE 예방, 메모리를 약간 잡아먹긴 함
 }
