@@ -19,10 +19,6 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-//    @OneToOne
-//    @JoinColumn(name = "LOKCER_ID")
-//    private Locker locker;
-
     @OneToMany(mappedBy = "member")
     private List<MemberProduct> memberProducts = new ArrayList<>();
 
