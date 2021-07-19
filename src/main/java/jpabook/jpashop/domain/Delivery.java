@@ -18,7 +18,7 @@ public class Delivery {
     private String zipcode;
     private DeliveryStatus status;
 
-    @OneToOne(mappedBy = "")
+    @OneToOne(mappedBy = "delivery")
     private Order order;
 
 }
